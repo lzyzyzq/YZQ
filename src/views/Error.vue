@@ -1,7 +1,10 @@
 <script setup>
+// 导入 Vue 的响应式 ref 函数（虽然本例未使用，但保留引入）
 import { ref } from 'vue';
+// 导入 Vue Router 的 useRoute 钩子，用于获取当前路由信息
 import { useRoute } from 'vue-router';
 
+// HTTP 错误状态码映射表：键为状态码，值为英文和中文描述
 const httpErrors = {
   400: {
     en: 'Bad Request',
@@ -121,21 +124,32 @@ const httpErrors = {
   },
 };
 
+// 获取当前路由对象
 const route = useRoute();
+// 获取路由参数中的 errorType，若该错误码存在于映射表中则使用它，否则默认使用 404
 const errorCode = httpErrors[route.params.errorType]
   ? route.params.errorType
   : '404';
+// 根据 errorCode 获取对应的错误消息对象（包含英文和中文）
 const errorMessage = httpErrors[errorCode];
 </script>
+
 <template>
+  <!-- 错误页面主体容器，上下外边距各 20 单位 -->
   <div class="my-20">
+    <!-- 错误码和描述区域，水平居中，底部间距 -->
     <div class="text-center m-2 mb-5">
+      <!-- 大号粗体显示错误状态码 -->
       <h1 class="text-6xl font-bold">{{ errorCode }}</h1>
+      <!-- 显示英文错误描述 -->
       <h2 class="text-2xl">{{ errorMessage.en }}</h2>
+      <!-- 显示中文错误描述 -->
       <span>{{ errorMessage.cn }}</span>
     </div>
+    <!-- 按钮区域，水平居中 -->
     <div class="text-center">
       <div>
+        <!-- 路由链接，点击后跳转到首页 -->
         <router-link class="btn btn-primary" to="/" role="button"
           >返回首页</router-link
         >
