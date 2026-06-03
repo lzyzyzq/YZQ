@@ -1,30 +1,37 @@
 {
+	// 项目名称
 	"name": "blog",
+	// 私有项目标识（防止意外发布到 npm 仓库）
 	"private": true,
+	// 项目版本号（遵循语义化版本）
 	"version": "0.0.0",
+	// 指定模块系统为 ES Module（支持 import/export 语法）
 	"type": "module",
+	// 可执行的脚本命令
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview"
+		"dev": "vite",          // 启动开发服务器
+		"build": "vite build",  // 构建生产环境静态文件
+		"preview": "vite preview" // 预览构建后的产物
 	},
+	// 生产环境依赖（运行时需要）
 	"dependencies": {
-		"@iconify/vue": "^5.0.0",
-		"@tailwindcss/vite": "^4.2.1",
-		"axios": "^1.13.5",
-		"marked": "^17.0.3",
-		"motion-v": "^1.10.3",
-		"octokit": "^5.0.5",
-		"pinia": "^3.0.4",
-		"tailwindcss": "^4.2.1",
-		"vue": "^3.5.25",
-		"vue-bits": "^1.1.1",
-		"vue-router": "^5.0.3"
+		"@iconify/vue": "^5.0.0",        // Iconify 图标库的 Vue 组件
+		"@tailwindcss/vite": "^4.2.1",   // Tailwind CSS 的 Vite 插件
+		"axios": "^1.13.5",              // HTTP 请求库
+		"marked": "^17.0.3",             // Markdown 解析器
+		"motion-v": "^1.10.3",           // 动画库（Vue 版）
+		"octokit": "^5.0.5",             // GitHub API 客户端
+		"pinia": "^3.0.4",               // Vue 状态管理库
+		"tailwindcss": "^4.2.1",         // Tailwind CSS 核心库
+		"vue": "^3.5.25",                // Vue.js 框架
+		"vue-bits": "^1.1.1",            // Vue 实用组件集合
+		"vue-router": "^5.0.3"           // Vue 路由管理器
 	},
+	// 开发环境依赖（仅构建/开发时需要）
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.19",
-		"@vitejs/plugin-vue": "^6.0.2",
-		"daisyui": "^5.5.19",
-		"vite": "^7.3.1"
+		"@tailwindcss/typography": "^0.5.19", // Tailwind 排版插件（用于美化富文本）
+		"@vitejs/plugin-vue": "^6.0.2",      // Vite 的 Vue 单文件组件插件
+		"daisyui": "^5.5.19",                // 基于 Tailwind 的 UI 组件库
+		"vite": "^7.3.1"                     // 构建工具 Vite
 	}
 }
