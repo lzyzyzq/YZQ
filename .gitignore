@@ -1,4 +1,4 @@
-# Logs
+# Logs（日志文件）
 logs
 *.log
 npm-debug.log*
@@ -7,14 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories（依赖目录）
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Editor directories and files（编辑器目录和文件）
 .vscode/*
-!.vscode/extensions.json
+!.vscode/extensions.json   # 例外：不忽略 extensions.json 文件
 .idea
 .DS_Store
 *.suo
