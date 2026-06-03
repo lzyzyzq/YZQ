@@ -1,54 +1,80 @@
+/* 导入 Tailwind CSS 核心库 */
 @import 'tailwindcss';
+
+/* 启用 daisyui 插件（基于 Tailwind 的 UI 组件库） */
 @plugin "daisyui";
+
+/* 自定义一个名为 easterEgg 的 daisyui 主题（彩蛋主题） */
 @plugin "daisyui/theme" {
-  name: 'easterEgg';
-  default: false;
-  prefersdark: false;
-  color-scheme: 'light';
+  name: 'easterEgg';           /* 主题名称 */
+  default: false;              /* 不作为默认主题 */
+  prefersdark: false;          /* 不跟随系统深色模式 */
+  color-scheme: 'light';       /* 颜色方案为浅色 */
+
+  /* 基础背景色（纯黑） */
   --color-base-100: oklch(0% 0 0);
   --color-base-200: oklch(0% 0 0);
   --color-base-300: oklch(0% 0 0);
+  /* 基础内容色（亮橙红色） */
   --color-base-content: oklch(57% 0.245 27.325);
+
+  /* 主色调（纯黑）及主内容色 */
   --color-primary: oklch(35% 0 0);
   --color-primary-content: oklch(57% 0.245 27.325);
+  /* 次要色（深灰）及次要内容色 */
   --color-secondary: oklch(44% 0.011 73.639);
   --color-secondary-content: oklch(50% 0.213 27.518);
+  /* 强调色（纯黑）及强调内容色 */
   --color-accent: oklch(35% 0 0);
   --color-accent-content: oklch(44% 0.177 26.899);
+  /* 中性色及中性内容色 */
   --color-neutral: oklch(35% 0 0);
   --color-neutral-content: oklch(39% 0.141 25.723);
+  /* 信息色及信息内容色 */
   --color-info: oklch(39% 0.141 25.723);
   --color-info-content: oklch(89.04% 0.062 264.052);
+  /* 成功色及成功内容色 */
   --color-success: oklch(44% 0.177 26.899);
   --color-success-content: oklch(90.395% 0.035 142.495);
+  /* 警告色及警告内容色 */
   --color-warning: oklch(50% 0.213 27.518);
   --color-warning-content: oklch(19.359% 0.042 109.769);
+  /* 错误色及错误内容色 */
   --color-error: oklch(57% 0.245 27.325);
   --color-error-content: oklch(12.559% 0.051 29.233);
+
+  /* 组件圆角半径（完全直角） */
   --radius-selector: 0rem;
   --radius-field: 0rem;
   --radius-box: 0rem;
+  /* 组件尺寸基础值 */
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
+  /* 边框宽度 */
   --border: 1px;
+  /* 阴影深度 */
   --depth: 1;
+  /* 噪点效果（关闭） */
   --noise: 0;
 }
 
+/* 全局图片样式：最大宽度不超出父容器，保持响应式 */
 img {
   max-width: 100%;
 }
 
+/* 多行文本截断工具类（配合自定义属性 --line 控制行数） */
 .truncate-wrap {
-  word-break: break-all;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: var(--line);
-  -webkit-box-orient: vertical;
+  word-break: break-all;           /* 任意位置换行 */
+  overflow: hidden;                /* 隐藏溢出内容 */
+  text-overflow: ellipsis;         /* 超出显示省略号 */
+  display: -webkit-box;            /* 弹性盒模型（用于多行截断） */
+  -webkit-line-clamp: var(--line); /* 显示的行数（由 CSS 变量 --line 控制） */
+  -webkit-box-orient: vertical;    /* 垂直排列子元素 */
 }
 
+/* 深色模式主题类（背景透明，文字白色） */
 .themeIsDark {
-  background: #00000000;
-  color: #ffffff;
+  background: #00000000;  /* 完全透明背景 */
+  color: #ffffff;         /* 纯白色文字 */
 }
